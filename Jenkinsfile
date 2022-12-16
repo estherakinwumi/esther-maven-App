@@ -26,7 +26,10 @@ pipeline {
     }
     stage('codequality'){
       steps{
-        sh "free -m"
+        sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=esther-team4 \
+  -Dsonar.host.url=http://3.131.229.138:9000 \
+  -Dsonar.login=sqp_25bc7ef0a785738dde989e3222bfc73bad43c237'
       }
     }
   }
